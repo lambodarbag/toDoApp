@@ -38,6 +38,7 @@ body {
     border-radius: 5px;
     font-size: 15px;
     font-weight: 500;
+    background: tan;
 }
 
 .input-box {
@@ -71,4 +72,8 @@ button {
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
     cursor: pointer;
+}
+
+.completed {
+    text-decoration: line-through;
 }
