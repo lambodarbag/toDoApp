@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.container {
+    border: 1px solid black;
+    gap: 10px;
+    height: 60%;
+    width: 80%;
+    background-color: thistle;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.todo-list {
+    height: 100%;
+    width: 50%;
+    padding: 20px 30px 0;
+    display: flex;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.input-box {
+    width: 50%;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background: moccasin;
+    outline: none;
+    font-size: 12px;
+    font-family: "Montserrat", sans-serif;
+}
+
+button {
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    background: salmon;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+}
