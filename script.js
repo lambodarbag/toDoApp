@@ -2,16 +2,62 @@ const button = document.querySelector("button");
 const inputBox = document.querySelector("input");
 const list = document.querySelector("ul");
 
+let todos = JSON.parse(localStorage.getItem("todos")) || [];
+
+// function to render todos on the UI
+function renderTodos() {
+    list.innerHTML = "";
+
+    todos.forEach((task, index) => {
+        const li = document.createElement("li");
+        li.textContent = task.text;
+        li.dataset.index = index;
+
+        if (task.completed) {
+            li.classList.add("completed");
+        }
+
+        list.appendChild(li);
+    });
+}
+renderTodos();
+
+
 button.addEventListener("click", (e) => {
-    if (inputBox.value === "") return;
-    let li = document.createElement("li");
-    li.textContent = inputBox.value.trim();
-    console.log(li.textContent.length);
-    list.appendChild(li);
-    li.style.cursor = "pointer";
-    inputBox.value = "";
+    let value = inputBox.value.trim();
+    if (value === "") return;
+    addToDo(value);
 });
 
 list.addEventListener("click", (e) => {
-    e.target.classList.toggle("completed");
+    if (e.target.tagName !== "LI") return;
+    completedToDo(e);
 });
+
+// function to add new task to todos array
+function addToDo(value) {
+    todos.push({
+        text: value,
+        completed: false
+    });
+
+    localStorage.setItem("todos", JSON.stringify(todos));
+    renderTodos();
+    inputBox.value = "";
+}
+
+// function to mark task as completed and remove from todos array
+function completedToDo(e) {
+    const index = e.target.dataset.index;
+
+    // todos array se task remove
+    todos.splice(index, 1);
+
+    // localStorage update
+    localStorage.setItem("todos", JSON.stringify(todos));
+
+    // UI re-render
+    renderTodos();
+}
+
+
