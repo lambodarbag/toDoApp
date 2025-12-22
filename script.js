@@ -12,6 +12,7 @@ function renderTodos() {
         const li = document.createElement("li");
         li.textContent = task.text;
         li.dataset.index = index;
+        li.style.cursor = "pointer";
 
         if (task.completed) {
             li.classList.add("completed");
