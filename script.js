@@ -61,4 +61,3 @@ function completedToDo(e) {
     renderTodos();
 }
 
-
